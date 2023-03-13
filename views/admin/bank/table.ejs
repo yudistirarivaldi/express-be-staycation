@@ -17,7 +17,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-               
+
                 <tbody>
                     <% for(let i=0; i < bank.length; i++) { %>
                         <tr>
@@ -33,14 +33,16 @@
                             <td>
                                 <%= bank[i].name %>
                             </td>
-                            <td><img src="http://localhost:3000/<%= bank[i].imageUrl %>" alt="imageUrl" height="70px" width="70px"></td>
+                            <td><img src="http://localhost:3000/<%= bank[i].imageUrl %>" alt="imageUrl" width="70px">
+                            </td>
 
                             <td>
                                 <form action="/admin/bank/<%= bank[i].id%>?_method=DELETE" method="post">
-                                    
+
                                     <a href="javascript:void()" type="button"
                                         class="btn btn-warning btn-sm button-update" data-id="<%= bank[i].id%>"
-                                        data-name="<%= bank[i].name%>" data-namebank="<%= bank[i].nameBank%>" data-nomorrekening="<%= bank[i].nomorRekening%>"  ><i class="fas fa-edit"></i></a>
+                                        data-name="<%= bank[i].name%>" data-namebank="<%= bank[i].nameBank%>"
+                                        data-nomorrekening="<%= bank[i].nomorRekening%>"><i class="fas fa-edit"></i></a>
 
                                     <button type="submit" class="btn btn-danger btn-sm"><i
                                             class="fas fa-trash"></i></button>
@@ -49,7 +51,7 @@
                         </tr>
                         <% } %>
                 </tbody>
-                
+
             </table>
         </div>
     </div>

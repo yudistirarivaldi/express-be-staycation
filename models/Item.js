@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const { ObjectID } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const ItemSchema = new mongoose.Schema({
-  ItemUrl: {
+  title: {
     type: String,
     required: String,
   },
@@ -20,26 +20,33 @@ const ItemSchema = new mongoose.Schema({
   },
   isPopular: {
     type: Boolean,
+    default: false,
   },
   description: {
     type: String,
     required: true,
   },
+
+  categoryId: {
+    type: ObjectId,
+    ref: "Category",
+  },
+
   imageId: [
     {
-      type: ObjectID,
+      type: ObjectId,
       ref: "Image",
     },
   ],
   featureId: [
     {
-      type: ObjectID,
+      type: ObjectId,
       ref: "Feature",
     },
   ],
   activityId: [
     {
-      type: ObjectID,
+      type: ObjectId,
       ref: "Activity",
     },
   ],

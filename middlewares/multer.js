@@ -16,13 +16,13 @@ const storageMultiple = multer.diskStorage({
   },
 });
 
-// const uploadMultiple = multer({
-//   storage: storageMultiple,
-//   limits: { fileSize: 1000000 },
-//   fileFilter: function (req, file, cb) {
-//     checkFileType(file, cb);
-//   },
-// }).array("image", 12);
+const uploadMultiple = multer({
+  storage: storageMultiple,
+  limits: { fileSize: 1000000 },
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+}).array("image", 12);
 
 // Set storage engine
 const storage = multer.diskStorage({
@@ -56,4 +56,4 @@ function checkFileType(file, cb) {
   }
 }
 
-module.exports = {  upload };
+module.exports = {  upload, uploadMultiple };
